@@ -1,0 +1,55 @@
+\documentclass[a4paper,11pt]{article} 
+
+\usepackage[
+  top = .5in, 
+  bottom = .5in, 
+  left = .75in, 
+  right = .75in]{geometry} 
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow} 
+\usepackage{booktabs} 
+\usepackage{graphicx} 
+
+\usepackage{setspace}
+\setlength{\parindent}{0in}
+
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage[style=apa, backend=biber]{biblatex}
+\addbibresource{references.bib}
+
+%%%%% header %%%%%
+
+\pagestyle{fancy} 
+\fancyhf{} 
+
+\lhead{\footnotesize BST 258: Reading Review 2}% 
+\rhead{\footnotesize Christian Testa} 
+\cfoot{\footnotesize \thepage} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% begin document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\thispagestyle{empty} % disable header on the first page. 
+
+\begin{tabular}{p{6.5in}}  
+{\bf BST 258: Causal Inference: Theory and Practice} \\
+Christian Testa\\ February 9th, 2024\\
+Reading Review 1\\
+\hline 
+\end{tabular} 
+
+\nocite{*}
+
+\vspace*{0.25in}
+
+%%%% body %%%% 
+
+\printbibliography
+
+\end{document}
