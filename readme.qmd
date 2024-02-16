@@ -1,0 +1,14 @@
+---
+title: 'Homework 1, BST 258, Causal Inference Theory and Practice'
+format: gfm
+--- 
+
+In this repository you will find my review of Pearl's 1995 paper (`reading_review/`) and 
+my homework, submitted as a Quarto document (`hw1/`). 
+
+R Environment Details: 
+
+```{r}
+sessionInfo()
+```
+

@@ -17,8 +17,6 @@
 
 \usepackage{float}
 \usepackage{fancyhdr}
-\usepackage[style=apa, backend=biber]{biblatex}
-\addbibresource{references.bib}
 
 %%%%% header %%%%%
 
@@ -39,7 +37,7 @@
 
 \begin{tabular}{p{6.5in}}  
 {\bf BST 258: Causal Inference: Theory and Practice} \\
-Christian Testa\\ February 9th, 2024\\
+Christian Testa\\ February 16th, 2024\\
 Reading Review 1\\
 \hline 
 \end{tabular} 
@@ -50,6 +48,33 @@ Reading Review 1\\
 
 %%%% body %%%% 
 
-\printbibliography
+\underline{Summary:} For this week, we were asked to read Judea Pearl's 1995 paper \textit{Causal Diagrams for Empirical Research} published in Biometrika. This article introduces
+now-classic concepts such as $d$-separation, graph representations of 
+causal dependency among variables, the `back-door' criterion, and the 
+`front-door' criterion. Pearl walks the reader through some applied
+examples such as how confounding is represented in a graph notation, and 
+graphical tests for identifiability of causal effects.  Some of the 
+material that was new-er to me was his commentary on how statisticians
+had historically viewed graphs with ``suspicion,'' which I thought 
+was rather interesting given that SEM was developed in the early 1900s 
+with applications to genetic inheritance and made ample use of graphs.
+
+\vspace{0.1in}
+
+\underline{Reflections:} In a way, it is particularly challenging to write 
+about how this paradigm and paper relate to the causal inference theory 
+with which I am familiar because I feel that this way of thinking 
+is foundational and integrated into much of modern causal inference.
+Where I find this body of theory somewhat challenging is in 
+the specification of the non-parametric functional relationships
+between variables because, in general, I find it much more difficult
+to show that one variable \textit{cannot} depend on another than to reason 
+that one variable \textit{could} depend on another.  As a result, we end up 
+with quite ridiculous looking causal graphs where everything forward
+in time depends on everything prior in time, and it's not clear 
+that this gains us much in our formal thinking. What I do think is 
+a boon to the theory of causal inference is how we can bring in 
+ideas from graph-theory and computer science to help us reason about
+the structure of our data and the relationships between variables.
 
 \end{document}

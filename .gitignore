@@ -1,3 +1,6 @@
 hw1/pset01.pdf
 hw1/**files/*
 reading_review/pearl1995.pdf
+.Rprofile
+renv/**
+
