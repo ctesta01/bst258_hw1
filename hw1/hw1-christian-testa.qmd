@@ -194,19 +194,34 @@ kidney stone size.
   E.g., $78\% = (73 \cdot .75) + (93 \cdot .25)$ and 
   $83\% = (69 \cdot .23) + (87 \cdot .77)$.
 
- b) No matter what I do, I can't seem to construct a table that is consistent
- with the original data given such that the treatment B is superior for every
- male/female $\times$ kidney stone size strata. 
+  b) We can come up with cell-sizes for the treatment successes/failures among men and women within each treatment arm 
+  and stratified across kidney stone size such that the 
+  treatment success rate for treatment B is higher in every 
+  sex/gender $\times$ kidney stone size strata. See the above table.
 
- I believe I understand what the question is getting at — that in certain 
- scenarios you can have that in every sub-strata, one treatment has superior
- performance, but when the results are aggregated, that treatment no longer has 
- the best treatment success rate overall. 
+```{r q5b}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-pos: H
 
- I think the problem in trying to do that with these data are that some of the 
- original percentages given are so high that if one tries to construct
- sex/gender strata where the treatment is superior for one treatment arm, 
- it can only be superior in one of the male/female strata but not the other. 
+library(kableExtra)
+
+df <- data.frame(
+stone_size = c('Small Stones', 'Large Stones', 'Both'),
+treatment_A_men = c('75.0% (3/4)', '50.0% (1/2)', '66.7% (4/6)'),
+treatment_A_women = c('94.0% (78/83)', '73.2% (191/261)', '78.2% (269/344)'),
+treatment_A_total = c("93% (81/87)", "73% (192/263)", "78% (273/350)"),
+treatment_B_men = c('78% (100/128)', '53% (10/19)', '75% (110/147)'),
+treatment_B_women = c('94.4% (134/142)', '73.8% (45/61)', '88.2% (179/203)'),
+treatment_B_total = c("87% (234/270)", "69% (55/80)", "83% (289/350)")
+)
+
+kbl(df,
+col.names = c('', 'Men', 'Women', 'Total', 'Men', 'Women', 'Total'), booktabs = TRUE) |>
+add_header_above(c("", "Treatment A" = 3, "Treatment B" = 3)) |>
+kable_styling(font_size = 9)
+```
 
   c) This is Simpson's paradox, where associations are 
   reversed when looking at data in aggregate vs. 
@@ -301,7 +316,8 @@ simulate_and_test_null_hypotheses <- function(B, n1, n0) {
   }
 
   return(data.frame(
-    sharp_p_values_w_power = mean(sharp_p_values < alpha), weak_p_values_w_power = mean(weak_p_values < alpha)))
+    sharp_p_values_w_power = mean(sharp_p_values < alpha), 
+    weak_p_values_w_power = mean(weak_p_values < alpha)))
 }
 
 # Run simulations with different sample sizes
@@ -335,6 +351,20 @@ results_df |>
 #| echo: false
 knitr::include_graphics("power_curve.png")
 ```
+
+The visualization rendered shows how our power to test the weak null rapidly increases
+with our sample size, while the power to test the sharp 
+null remains at basically zero. While this is 
+not damning evidence against the sharp-null hypothesis 
+per-se, it does represent a very real practical challenge 
+in using the sharp-null hypothesis. While vigorous 
+debates about whether the sharp null or weak null hypothesis 
+is more appropriate may ensue, certainly most practically 
+minded collaborators will appreciate that at any sample size 
+we will have more power to test the weak null and if that 
+suffices to answer key study questions, we have good 
+reason to argue for testing a weak
+null as a satisfactory study endpoint. 
 
 \newpage
 ## Question 7 
